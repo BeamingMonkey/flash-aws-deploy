@@ -3,7 +3,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Hello from Arun Raj's AWS Flask App! 🚀"
+    return "Live from GitHub CI/CD on Elastic Beanstalk 💥"
+
 
 if __name__ == '__main__':
     app.run()
