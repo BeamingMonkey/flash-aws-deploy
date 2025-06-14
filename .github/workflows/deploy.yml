@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source
-      uses: actions/checkout@v2
+    - name: Checkout source code
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.11'
 
@@ -23,17 +23,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Zip source code
-      run: zip -r app.zip .
-
     - name: Deploy to Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v20
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: flask-app
-        environment_name: flask-env
-        version_label: v-${{ github.run_number }}
+        application_name: flash-app
+        environment_name: flash-app-env
         region: ap-south-1
-        deployment_package: app.zip
+        version_label: ${{ github.sha }}
+        deployment_package: application.zip
 
+    - name: Zip and Upload
+      run: |
+        zip -r application.zip . -x "*.git*"
