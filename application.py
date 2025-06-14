@@ -1,5 +1,5 @@
 from flask import Flask
-application = Flask(__name__)  # Required name for AWS Elastic Beanstalk
+application = Flask(__Flash-app__)  # Required name for AWS Elastic Beanstalk
 
 @application.route('/')
 def hello():
