@@ -30,6 +30,6 @@ jobs:
           application_name: Flash-app
           environment_name: Flash-app-env
           region: eu-north-1
-          version_label: ${{ github.sha }}
+          version_label: f38d3edfb330c6a9c6f4f278ddbc87930e9d90dc
           deployment_package: application.zip
           use_existing_version_if_available: true 
