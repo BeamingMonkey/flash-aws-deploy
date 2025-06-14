@@ -1,10 +1,9 @@
 from flask import Flask
-app = Flask(__name__)
+application = Flask(__name__)  # Must be named 'application' for Beanstalk
 
-@app.route('/')
+@application.route('/')
 def hello():
     return "Live from GitHub CI/CD on Elastic Beanstalk 💥"
 
-
 if __name__ == '__main__':
-    app.run()
+    application.run()
