@@ -1,9 +1,11 @@
+import os
 from flask import Flask
-application = Flask(__Flash-app__)  # Required name for AWS Elastic Beanstalk
+app = Flask(__name__)
 
-@application.route('/')
+@app.route('/')
 def hello():
     return "Live from GitHub CI/CD on Elastic Beanstalk 💥"
 
 if __name__ == '__main__':
-    application.run()
+    port = int(os.environ.get('PORT', 8080))  # EB sets this env variable
+    app.run(host='0.0.0.0', port=port)
