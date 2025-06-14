@@ -23,6 +23,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Zip application
+      run: |
+        zip -r application.zip . -x "*.git*"
+
     - name: Deploy to Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v20
       with:
@@ -33,7 +37,3 @@ jobs:
         region: ap-south-1
         version_label: ${{ github.sha }}
         deployment_package: application.zip
-
-    - name: Zip and Upload
-      run: |
-        zip -r application.zip . -x "*.git*"
