@@ -5,14 +5,14 @@ application = Flask(__name__)
 @application.route('/')
 def home():
     return '''
-    <h1>Welcome to my Flask App!</h1>
+    <h1>Welcome to Arunraj's Flask App!</h1>
     <p><a href="/success">Click here to see deployment status</a></p>
     '''
 
 @application.route('/success')
 def success():
     message = """
-    <h2>🎉 Your app is LIVE and working perfectly! 🚀</h2>
+    <h2>🎉  app is LIVE and working perfectly! 🚀</h2>
     <p>Here’s what we’ve done:</p>
     <ul>
       <li>Deployed the app from GitHub to AWS Elastic Beanstalk</li>
